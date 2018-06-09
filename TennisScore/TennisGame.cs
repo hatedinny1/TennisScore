@@ -27,7 +27,7 @@ namespace TennisScore
             {
                 return $"{_scoreLookUp[game.FirstPlayerScore]} {_scoreLookUp[game.SecondPlayerScore]}";
             }
-            if (game.FirstPlayerScore >= 3)
+            if (game.IsDeuce())
             {
                 return "Deuce";
             }
