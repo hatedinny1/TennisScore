@@ -61,6 +61,12 @@ namespace TennisScore
             GivenGame(firstPlayerScore: 1, secondPlayerScore: 1);
             ScoreResultShouldBe(expected: "Fifteen All");
         }
+        [TestMethod]
+        public void Thirty_All()
+        {
+            GivenGame(firstPlayerScore: 2, secondPlayerScore: 2);
+            ScoreResultShouldBe(expected: "Thirty All");
+        }
         private void ScoreResultShouldBe(string expected)
         {
             var scoreResult = _tennisGame.ScoreResult(AnyGameId);
