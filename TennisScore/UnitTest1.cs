@@ -17,6 +17,7 @@ namespace TennisScore
         }
 
         private const int AnyGameId = 1;
+        private const string FirstPlayerName = "Alex";
 
         [TestMethod]
         public void Love_All()
@@ -73,6 +74,13 @@ namespace TennisScore
             GivenGame(firstPlayerScore: 3, secondPlayerScore: 3);
             ScoreResultShouldBe(expected: "Deuce");
         }
+        [TestMethod]
+        public void FirstPlayer_Adv()
+        {
+            GivenGame(firstPlayerScore: 4, secondPlayerScore: 3);
+            ScoreResultShouldBe(expected: FirstPlayerName + " Adv");
+        }
+
         private void ScoreResultShouldBe(string expected)
         {
             var scoreResult = _tennisGame.ScoreResult(AnyGameId);
@@ -81,7 +89,7 @@ namespace TennisScore
 
         private ConfiguredCall GivenGame(int firstPlayerScore, int secondPlayerScore)
         {
-            return _repository.GetGame(AnyGameId).Returns(new Game { Id = AnyGameId, FirstPlayerScore = firstPlayerScore, SecondPlayerScore = secondPlayerScore });
+            return _repository.GetGame(AnyGameId).Returns(new Game { Id = AnyGameId, FirstPlayerScore = firstPlayerScore, SecondPlayerScore = secondPlayerScore ,FirstPlayerName = FirstPlayerName});
         }
     }
 }
