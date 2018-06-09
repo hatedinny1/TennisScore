@@ -21,10 +21,15 @@ namespace TennisScore
                 [2] = "Thirty",
                 [3] = "Forty"
             };
+            if (game.SecondPlayerScore == 2)
+            {
+                return "Love Thirty";
+            }
             if (game.SecondPlayerScore == 1)
             {
                 return "Love Fifteen";
             }
+
             if (game.FirstPlayerScore > 0)
             {
                 return $"{scoreLookUp[game.FirstPlayerScore]} Love";
