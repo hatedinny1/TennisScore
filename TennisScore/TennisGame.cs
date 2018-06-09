@@ -18,7 +18,8 @@ namespace TennisScore
             var scoreLookUp = new Dictionary<int, string>()
             {
                 [1] = "Fifteen",
-                [2] = "Thirty"
+                [2] = "Thirty",
+                [3] = "Forty"
             };
             if (game.FirstPlayerScore > 0)
             {
