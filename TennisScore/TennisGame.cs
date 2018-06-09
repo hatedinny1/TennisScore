@@ -9,7 +9,7 @@ namespace TennisScore
 
         private readonly Dictionary<int, string> _scoreLookUp = new Dictionary<int, string>()
         {
-            [0]="Love",
+            [0] = "Love",
             [1] = "Fifteen",
             [2] = "Thirty",
             [3] = "Forty"
@@ -25,6 +25,13 @@ namespace TennisScore
             var game = this._repo.GetGame(gameId);
             if (game.IsDiffScore())
             {
+                if (game.SecondPlayerScore > 3)
+                {
+                    if (game.SecondPlayerScore - game.FirstPlayerScore == 1)
+                    {
+                        return game.SecondPlayerName + " Adv";
+                    }
+                }
                 if (game.FirstPlayerScore > 3)
                 {
                     if (game.FirstPlayerScore - game.SecondPlayerScore == 1)
@@ -34,7 +41,7 @@ namespace TennisScore
                 }
                 return $"{_scoreLookUp[game.FirstPlayerScore]} {_scoreLookUp[game.SecondPlayerScore]}";
             }
-            
+
             if (game.IsDeuce())
             {
                 return "Deuce";
