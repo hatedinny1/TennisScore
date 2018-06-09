@@ -63,5 +63,12 @@ namespace TennisScore
         {
             return $"{Game._scoreLookUp[FirstPlayerScore]} All";
         }
+
+        public string ScoreResult()
+        {
+            return IsDiffScore()
+                ? (IsGamePoint() ? GamePointState() : ScoreLookupResult())
+                : (IsDeuce() ? Game.Deuce : SameScoreResult());
+        }
     }
 }

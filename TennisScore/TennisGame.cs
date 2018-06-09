@@ -15,9 +15,7 @@ namespace TennisScore
         public string ScoreResult(int gameId)
         {
             var game = this._repo.GetGame(gameId);
-            return game.IsDiffScore()
-                ? (game.IsGamePoint() ? game.GamePointState() : game.ScoreLookupResult())
-                : (game.IsDeuce() ? Game.Deuce : game.SameScoreResult());
+            return game.ScoreResult();
         }
     }
 }
