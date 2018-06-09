@@ -37,6 +37,12 @@ namespace TennisScore
             GivenGame(2, 0);
             ScoreResultShouldBe("Thirty Love");
         }
+        [TestMethod]
+        public void Forty_Love()
+        {
+            GivenGame(3, 0);
+            ScoreResultShouldBe("Forty Love");
+        }
 
         private void ScoreResultShouldBe(string expected)
         {
