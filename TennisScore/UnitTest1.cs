@@ -88,6 +88,12 @@ namespace TennisScore
             GivenGame(firstPlayerScore: 3, secondPlayerScore: 4);
             ScoreResultShouldBe(expected: SecondPlayerName + " Adv");
         }
+        [TestMethod]
+        public void FirstPlayer_Win()
+        {
+            GivenGame(firstPlayerScore: 5, secondPlayerScore: 3);
+            ScoreResultShouldBe(expected: FirstPlayerName + " Win");
+        }
 
         private void ScoreResultShouldBe(string expected)
         {
