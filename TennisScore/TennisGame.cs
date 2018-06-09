@@ -25,20 +25,14 @@ namespace TennisScore
             var game = this._repo.GetGame(gameId);
             if (game.IsDiffScore())
             {
-                if (game.SecondPlayerScore > 3)
+                if (game.IsGamePoint())
                 {
-                    if (game.SecondPlayerScore - game.FirstPlayerScore == 1)
+                    if (game.IsAdv())
                     {
-                        return game.SecondPlayerName + " Adv";
+                        return $"{game.AdvPlayer()} Adv";
                     }
                 }
-                if (game.FirstPlayerScore > 3)
-                {
-                    if (game.FirstPlayerScore - game.SecondPlayerScore == 1)
-                    {
-                        return game.FirstPlayerName + " Adv";
-                    }
-                }
+                
                 return $"{_scoreLookUp[game.FirstPlayerScore]} {_scoreLookUp[game.SecondPlayerScore]}";
             }
 
