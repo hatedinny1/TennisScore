@@ -31,6 +31,10 @@ namespace TennisScore
                     {
                         return $"{game.AdvPlayer()} Adv";
                     }
+                    else
+                    {
+                        return $"{game.AdvPlayer()} Win";
+                    }
                 }
                 
                 return $"{_scoreLookUp[game.FirstPlayerScore]} {_scoreLookUp[game.SecondPlayerScore]}";
